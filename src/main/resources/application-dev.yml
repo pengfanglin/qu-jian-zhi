@@ -43,11 +43,13 @@ common:
     password: 123456
     host: 47.101.151.125
   sms:
-    zhu-tong:
-      account: sfsfhy
-      password: jLkdrz
+    ali:
+      access-key-id: LTAI4Ff7n5i76MNMW7w3QNgu
+      access-secret: EC8YR9jVi1WE4rxVigvsev37bzwsZr
   swagger:
     enable: true
     title: 趣兼职
     description: 趣兼职API文档
     version: 1.0.0
+  http:
+    enable: true

@@ -32,6 +32,16 @@ import java.util.Arrays;
 @Slf4j
 @ControllerAdvice
 public class MyExceptionHandler {
+
+    private static boolean pro = true;
+
+    public MyExceptionHandler() {
+        String os = System.getProperty("os.name");
+        if (os.toLowerCase().startsWith("win")) {
+            pro = false;
+        }
+    }
+
     /**
      * 必传参数未传异常
      */
@@ -58,6 +68,9 @@ public class MyExceptionHandler {
     @ExceptionHandler(BusinessException.class)
     @ResponseBody
     public Ajax handleBusinessException(BusinessException e) {
+        if (!pro) {
+            e.printStackTrace();
+        }
         return Ajax.status(e.getCode(), e.getMessage());
     }
 
@@ -109,7 +122,11 @@ public class MyExceptionHandler {
     @ExceptionHandler
     @ResponseBody
     public Ajax handleException(Exception e, HttpServletRequest request) {
-        log.warn("异常原因:{},请求参数:\n{}", e.getMessage(), JsonUtils.objectToJson(OthersUtils.readRequestParams(request)));
+        if (pro) {
+            log.warn("异常原因:{},请求参数:{}", e.getMessage(), JsonUtils.objectToJson(OthersUtils.readRequestParams(request)));
+        } else {
+            e.printStackTrace();
+        }
         return Ajax.error("服务器错误");
     }
 

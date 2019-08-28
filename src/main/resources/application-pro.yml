@@ -43,8 +43,9 @@ common:
     password: 123456
     host: 172.17.0.1
   sms:
-    zhu-tong:
-      account: sfsfhy
-      password: jLkdrz
+    ali:
+      access-key-id: LTAIhzWNL2iinBvP
   swagger:
     enable: false
+  http:
+    enable: true

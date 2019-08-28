@@ -17,4 +17,9 @@ public class MapperFactory {
      */
     @Autowired
     public OthersMapper others;
+    /**
+     * 用户
+     */
+    @Autowired
+    public UserMapper user;
 }

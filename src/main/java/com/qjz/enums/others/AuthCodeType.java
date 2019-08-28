@@ -3,27 +3,27 @@ package com.qjz.enums.others;
 import lombok.Getter;
 
 /**
- * 验证码类型
+ * 需要鉴权的验证码类型
  *
  * @author 彭方林
  * @version 1.0
  * @date 2019/5/16 20:27
  **/
-public enum CodeType {
+public enum AuthCodeType {
 
     /**
-     * 验证码
+     * 找回密码
      */
-    CODE("SMS_173246287"),
+    FIND_PASSWORD("SMS_173246287"),
     /**
-     * 用户注册
+     * 修改密码
      */
-    USER_REGISTER("SMS_173246287");
+    UPDATE_PASSWORD("SMS_173246287");
 
     @Getter
     private String code;
 
-    CodeType(String code) {
+    AuthCodeType(String code) {
         this.code = code;
     }
 }
