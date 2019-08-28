@@ -34,21 +34,21 @@ public class UserServiceImpl implements UserService {
     MapperFactory mapperFactory;
 
     @Override
-    public UserLoginResultModel userLogin(HttpServletResponse response, String mobile, String password) {
+    public UserLoginResultModel login(HttpServletResponse response, String mobile, String password) {
         Assert.isTrue(RegexUtils.checkPhone(mobile), "手机号格式错误");
         Assert.isTrue(password.length() <= 20, "密码最多20位");
         UserModel user = mapperFactory.user.login(mobile);
         Assert.notNull(user, "用户不存在");
         Assert.isFalse(user.getDisable(), "账号已冻结");
         Assert.isTrue(EncodeUtils.md5Encode(password, user.getSalt()).equals(user.getPassword()), "密码错误");
-        TokenData tokenData = new TokenData(user.getId(), user.getMobile().toString());
+        TokenData tokenData = new TokenData(user.getId(), mobile);
         TokenInfo tokenInfo = new TokenInfo().setData(tokenData);
         TokenUtils.login(response, tokenInfo);
         return new UserLoginResultModel(tokenInfo.getAssessToken(), tokenInfo.getRefreshToken());
     }
 
     @Override
-    public UserLoginResultModel userRegister(HttpServletResponse response, String mobile, String password, String code) {
+    public UserLoginResultModel register(HttpServletResponse response, String mobile, String password, String code) {
         Assert.isTrue(RegexUtils.checkPhone(mobile), "手机号格式错误");
         Assert.isTrue(password.length() <= 20, "密码最多20位");
         String key = String.format("%s:%s:%s:%s", RedisKey.CODE.getKey(), CodeType.USER_REGISTER, mobile, code);

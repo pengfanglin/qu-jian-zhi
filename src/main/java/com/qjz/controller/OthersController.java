@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * 其他接口控制器
  *
@@ -55,13 +58,13 @@ public class OthersController {
         return Ajax.ok("发送成功");
     }
 
-    @ApiOperation("发送验证码")
+    @ApiOperation("发送鉴权验证码")
     @ApiImplicitParams({
         @ApiImplicitParam(name = "type", value = "验证码类型", required = true)
     })
-    @PostMapping("sendCodeAuth")
+    @PostMapping("sendAuthCode")
     @Token
-    public Ajax sendCode(TokenData tokenData, @RequestParam CodeType type) {
+    public Ajax sendCode(TokenData tokenData, @RequestParam AuthCodeType type) {
         othersService.sendCode(tokenData.getMobile(), type.toString());
         return Ajax.ok("发送成功");
     }
@@ -72,7 +75,6 @@ public class OthersController {
         @ApiImplicitParam(name = "type", value = "验证码类型", required = true)
     })
     @PostMapping("sendCodeTest")
-    @Token
     public Ajax sendCodeTest(@RequestParam String mobile, @RequestParam CodeType type) {
         String code = othersService.sendTestCode(mobile, type.toString());
         return Ajax.ok(code);
@@ -84,7 +86,7 @@ public class OthersController {
     })
     @PostMapping("sendAuthCodeTest")
     @Token
-    public Ajax sendAuthCodeTest(TokenData tokenData, @RequestParam CodeType type) {
+    public Ajax sendAuthCodeTest(TokenData tokenData, @RequestParam AuthCodeType type) {
         String code = othersService.sendTestCode(tokenData.getMobile(), type.toString());
         return Ajax.ok(code);
     }

@@ -22,7 +22,7 @@ public interface UserService {
      * @param password 密码
      * @return
      */
-    UserLoginResultModel userLogin(HttpServletResponse response, String mobile, String password);
+    UserLoginResultModel login(HttpServletResponse response, String mobile, String password);
 
     /**
      * 用户注册
@@ -33,5 +33,5 @@ public interface UserService {
      * @param code     验证码
      * @return
      */
-    UserLoginResultModel userRegister(HttpServletResponse response, String mobile, String password, String code);
+    UserLoginResultModel register(HttpServletResponse response, String mobile, String password, String code);
 }

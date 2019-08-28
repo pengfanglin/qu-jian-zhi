@@ -42,9 +42,9 @@ public class UserController {
         @ApiImplicitParam(name = "mobile", value = "手机号", required = true),
         @ApiImplicitParam(name = "password", value = "密码", required = true)
     })
-    @PostMapping("userLogin")
-    public Ajax<UserLoginResultModel> userLogin(HttpServletResponse response, @RequestParam String mobile, @RequestParam String password) {
-        return Ajax.ok(userService.userLogin(response, mobile, password));
+    @PostMapping("login")
+    public Ajax<UserLoginResultModel> login(HttpServletResponse response, @RequestParam String mobile, @RequestParam String password) {
+        return Ajax.ok(userService.login(response, mobile, password));
     }
 
     @ApiOperation("用户注册")
@@ -54,7 +54,7 @@ public class UserController {
         @ApiImplicitParam(name = "code", value = "验证码", required = true)
     })
     @PostMapping("userRegister")
-    public Ajax<UserLoginResultModel> userRegister(HttpServletResponse response, @RequestParam String mobile, @RequestParam String password, @RequestParam String code) {
-        return Ajax.ok(userService.userRegister(response, mobile, password, code));
+    public Ajax<UserLoginResultModel> register(HttpServletResponse response, @RequestParam String mobile, @RequestParam String password, @RequestParam String code) {
+        return Ajax.ok(userService.register(response, mobile, password, code));
     }
 }
