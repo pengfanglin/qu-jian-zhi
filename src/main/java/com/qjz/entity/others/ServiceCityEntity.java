@@ -1,4 +1,4 @@
-package com.qjz.entity.user;
+package com.qjz.entity.others;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,7 +8,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * 用户
+ * 服务城市
  *
  * @author 彭方林
  * @version 1.0
@@ -17,8 +17,8 @@ import java.util.Date;
 @Setter
 @Getter
 @Accessors(chain = true)
-@Table(name = "user")
-public class UserEntity {
+@Table(name = "service_city")
+public class ServiceCityEntity {
     /**
      * 主键
      */
@@ -26,15 +26,7 @@ public class UserEntity {
     /**
      * 手机号
      */
-    private Long mobile;
-    /**
-     * 密码盐值
-     */
-    private String salt;
-    /**
-     * 密码
-     */
-    private String password;
+    private String name;
     /**
      * 是否禁用
      */

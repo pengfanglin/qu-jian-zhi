@@ -9,7 +9,7 @@ import lombok.Getter;
  * @version 1.0
  * @date 2019/5/16 20:27
  **/
-public enum CodeType {
+public enum CodeTypeEnum {
 
     /**
      * 验证码
@@ -23,7 +23,7 @@ public enum CodeType {
     @Getter
     private String code;
 
-    CodeType(String code) {
+    CodeTypeEnum(String code) {
         this.code = code;
     }
 }

@@ -1,4 +1,4 @@
-package com.qjz.controller;
+package com.qjz.controller.common;
 
 import com.fanglin.common.core.others.Ajax;
 import org.springframework.beans.factory.annotation.Autowired;

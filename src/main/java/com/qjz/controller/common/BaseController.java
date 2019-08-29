@@ -1,4 +1,4 @@
-package com.qjz.controller;
+package com.qjz.controller.common;
 
 import com.fanglin.common.utils.TimeUtils;
 import org.springframework.beans.propertyeditors.CustomDateEditor;

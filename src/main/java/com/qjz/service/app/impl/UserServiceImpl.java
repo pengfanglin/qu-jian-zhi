@@ -1,21 +1,20 @@
-package com.qjz.service.impl;
+package com.qjz.service.app.impl;
 
 import com.fanglin.common.core.others.Assert;
 import com.fanglin.common.core.token.TokenInfo;
 import com.fanglin.common.utils.*;
 import com.qjz.core.others.TokenData;
 import com.qjz.entity.user.UserEntity;
-import com.qjz.enums.others.CodeType;
-import com.qjz.enums.others.RedisKey;
+import com.qjz.enums.others.CodeTypeEnum;
+import com.qjz.enums.others.RedisKeyEnum;
 import com.qjz.mapper.MapperFactory;
 import com.qjz.model.user.UserLoginResultModel;
 import com.qjz.model.user.UserModel;
-import com.qjz.service.UserService;
+import com.qjz.service.app.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
@@ -51,7 +50,7 @@ public class UserServiceImpl implements UserService {
     public UserLoginResultModel register(HttpServletResponse response, String mobile, String password, String code) {
         Assert.isTrue(RegexUtils.checkPhone(mobile), "手机号格式错误");
         Assert.isTrue(password.length() <= 20, "密码最多20位");
-        String key = String.format("%s:%s:%s:%s", RedisKey.CODE.getKey(), CodeType.USER_REGISTER, mobile, code);
+        String key = String.format("%s:%s:%s:%s", RedisKeyEnum.CODE.getKey(), CodeTypeEnum.USER_REGISTER, mobile, code);
         try (Jedis jedis = JedisUtils.getJedis()) {
             LogUtils.info(key);
             String value = jedis.get(key);

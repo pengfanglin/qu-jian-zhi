@@ -9,7 +9,7 @@ import lombok.Getter;
  * @version 1.0
  * @date 2019/8/28 14:06
  **/
-public enum RedisKey {
+public enum RedisKeyEnum {
 
     /**
      * 验证码
@@ -21,7 +21,7 @@ public enum RedisKey {
     @Getter
     private String key;
 
-    RedisKey(String key) {
+    RedisKeyEnum(String key) {
         this.key = key;
     }
 }

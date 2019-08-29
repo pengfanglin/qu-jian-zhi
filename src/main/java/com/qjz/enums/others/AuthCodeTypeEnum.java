@@ -9,7 +9,7 @@ import lombok.Getter;
  * @version 1.0
  * @date 2019/5/16 20:27
  **/
-public enum AuthCodeType {
+public enum AuthCodeTypeEnum {
 
     /**
      * 找回密码
@@ -23,7 +23,7 @@ public enum AuthCodeType {
     @Getter
     private String code;
 
-    AuthCodeType(String code) {
+    AuthCodeTypeEnum(String code) {
         this.code = code;
     }
 }

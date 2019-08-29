@@ -1,4 +1,4 @@
-package com.qjz.service;
+package com.qjz.service.common;
 
 /**
  * @author 彭方林

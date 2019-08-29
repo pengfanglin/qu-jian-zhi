@@ -1,4 +1,4 @@
-package com.qjz.service;
+package com.qjz.service.app;
 
 import com.qjz.model.user.UserLoginResultModel;
 

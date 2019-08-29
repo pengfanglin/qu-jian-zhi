@@ -1,13 +1,12 @@
-package com.qjz.controller;
+package com.qjz.controller.common;
 
 import com.fanglin.common.annotation.Token;
 import com.fanglin.common.core.others.Ajax;
-import com.fanglin.common.core.token.TokenInfo;
 import com.fanglin.common.utils.UploadUtils;
 import com.qjz.core.others.TokenData;
-import com.qjz.enums.others.AuthCodeType;
-import com.qjz.enums.others.CodeType;
-import com.qjz.service.OthersService;
+import com.qjz.enums.others.AuthCodeTypeEnum;
+import com.qjz.enums.others.CodeTypeEnum;
+import com.qjz.service.common.OthersService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -19,9 +18,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * 其他接口控制器
  *
@@ -30,8 +26,8 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2019/4/3 16:36
  **/
 @RestController
-@RequestMapping("/others/")
-@Api(value = "/others/", tags = {"基本服务"})
+@RequestMapping("/common/others/")
+@Api(value = "/common/others/", tags = {"公共", "其他"})
 public class OthersController {
 
     @Autowired
@@ -53,7 +49,7 @@ public class OthersController {
         @ApiImplicitParam(name = "type", value = "验证码类型", required = true)
     })
     @PostMapping("sendCode")
-    public Ajax sendCode(@RequestParam String mobile, @RequestParam CodeType type) {
+    public Ajax sendCode(@RequestParam String mobile, @RequestParam CodeTypeEnum type) {
         othersService.sendCode(mobile, type.toString());
         return Ajax.ok("发送成功");
     }
@@ -64,7 +60,7 @@ public class OthersController {
     })
     @PostMapping("sendAuthCode")
     @Token
-    public Ajax sendCode(TokenData tokenData, @RequestParam AuthCodeType type) {
+    public Ajax sendCode(TokenData tokenData, @RequestParam AuthCodeTypeEnum type) {
         othersService.sendCode(tokenData.getMobile(), type.toString());
         return Ajax.ok("发送成功");
     }
@@ -75,7 +71,7 @@ public class OthersController {
         @ApiImplicitParam(name = "type", value = "验证码类型", required = true)
     })
     @PostMapping("sendCodeTest")
-    public Ajax sendCodeTest(@RequestParam String mobile, @RequestParam CodeType type) {
+    public Ajax sendCodeTest(@RequestParam String mobile, @RequestParam CodeTypeEnum type) {
         String code = othersService.sendTestCode(mobile, type.toString());
         return Ajax.ok(code);
     }
@@ -86,7 +82,7 @@ public class OthersController {
     })
     @PostMapping("sendAuthCodeTest")
     @Token
-    public Ajax sendAuthCodeTest(TokenData tokenData, @RequestParam AuthCodeType type) {
+    public Ajax sendAuthCodeTest(TokenData tokenData, @RequestParam AuthCodeTypeEnum type) {
         String code = othersService.sendTestCode(tokenData.getMobile(), type.toString());
         return Ajax.ok(code);
     }

@@ -12,14 +12,10 @@ import org.springframework.stereotype.Component;
  **/
 @Component
 public class MapperFactory {
-    /**
-     * 其他
-     */
     @Autowired
     public OthersMapper others;
-    /**
-     * 用户
-     */
     @Autowired
     public UserMapper user;
+    @Autowired
+    public ServiceCityMapper serviceCity;
 }
