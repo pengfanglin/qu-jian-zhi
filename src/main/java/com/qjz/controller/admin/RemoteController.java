@@ -3,6 +3,7 @@ package com.qjz.controller.admin;
 import com.fanglin.common.core.aop.LocalCacheAop;
 import com.fanglin.common.core.others.Ajax;
 import com.fanglin.common.utils.JedisUtils;
+import com.fanglin.common.utils.JvmUtils;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -83,5 +84,11 @@ public class RemoteController {
     @PostMapping("localCacheInfo")
     public Ajax<LocalCacheAop.CacheInfo> localCacheInfo(Boolean showValue) {
         return Ajax.ok(LocalCacheAop.cacheInfo(showValue));
+    }
+
+    @ApiOperation("jvm状态")
+    @PostMapping("jvmState")
+    public Ajax<JvmUtils.JvmInfo> jvmState() {
+        return Ajax.ok(JvmUtils.jvmInfo());
     }
 }
