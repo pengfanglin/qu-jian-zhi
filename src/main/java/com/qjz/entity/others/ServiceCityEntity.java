@@ -24,9 +24,17 @@ public class ServiceCityEntity {
      */
     private Integer id;
     /**
-     * 手机号
+     * 城市名称
      */
     private String name;
+    /**
+     * 地区编码
+     */
+    private Integer code;
+    /**
+     * 首字母
+     */
+    private String letter;
     /**
      * 是否禁用
      */

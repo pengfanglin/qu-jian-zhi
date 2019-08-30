@@ -24,4 +24,6 @@ public class ServiceCityListModel {
     private String name;
     @ApiModelProperty("首字母")
     private String letter;
+    @ApiModelProperty("地区编码")
+    private Integer code;
 }
