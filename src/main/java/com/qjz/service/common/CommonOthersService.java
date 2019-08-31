@@ -5,7 +5,7 @@ package com.qjz.service.common;
  * @version 1.0
  * @date 2019/4/4 10:00
  **/
-public interface OthersService {
+public interface CommonOthersService {
     /**
      * 发送验证码
      *

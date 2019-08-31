@@ -1,6 +1,6 @@
 package com.qjz.mapper;
 
-import com.qjz.entity.others.ServiceCityEntity;
+import com.qjz.entity.address.ServiceCityEntity;
 import com.qjz.model.city.ServiceCityListModel;
 import org.apache.ibatis.annotations.Select;
 import tk.mybatis.mapper.common.Mapper;
@@ -21,6 +21,6 @@ public interface ServiceCityMapper extends Mapper<ServiceCityEntity> {
      *
      * @return
      */
-    @Select("SELECT name,letter FROM service_city ORDER BY letter")
+    @Select("SELECT name,letter,code FROM service_city ORDER BY letter")
     List<ServiceCityListModel> serviceCityList();
 }

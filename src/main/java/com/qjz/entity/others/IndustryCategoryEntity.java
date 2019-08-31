@@ -1,7 +1,7 @@
-package com.qjz.entity.user;
+package com.qjz.entity.others;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.qjz.enums.post.PostTypeEnum;
+import lombok.Data;
 import lombok.experimental.Accessors;
 import tk.mybatis.mapper.annotation.KeySql;
 
@@ -10,45 +10,45 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * 用户
+ * 行业分类
  *
  * @author 彭方林
  * @version 1.0
- * @date 2019/8/28 13:06
+ * @date 2019/8/30 22:34
  **/
-@Setter
-@Getter
+@Data
 @Accessors(chain = true)
-@Table(name = "user")
-public class UserEntity {
-    /**
-     * 主键
-     */
+@Table(name = "banner")
+public class IndustryCategoryEntity {
     @Id
     @KeySql(useGeneratedKeys = true)
     private Integer id;
     /**
-     * 手机号
+     * 父节点id
      */
-    private Long mobile;
+    private Integer parentId;
     /**
-     * 密码盐值
+     * 名称
      */
-    private String salt;
+    private String name;
     /**
-     * 密码
+     * 使用次数
      */
-    private String password;
+    private Integer hotNum;
     /**
-     * 是否禁用
+     * 岗位类型
      */
-    private Boolean disable;
+    private PostTypeEnum type;
+    /**
+     * 权重
+     */
+    private Float sort;
     /**
      * 创建时间
      */
     private Date createTime;
     /**
-     * 修改时间
+     * 创建时间
      */
     private Date updateTime;
 }

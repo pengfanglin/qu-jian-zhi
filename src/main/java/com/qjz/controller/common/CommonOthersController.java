@@ -6,7 +6,7 @@ import com.fanglin.common.utils.UploadUtils;
 import com.qjz.core.others.TokenData;
 import com.qjz.enums.others.AuthCodeTypeEnum;
 import com.qjz.enums.others.CodeTypeEnum;
-import com.qjz.service.common.OthersService;
+import com.qjz.service.common.CommonOthersService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -28,10 +28,10 @@ import org.springframework.web.multipart.MultipartFile;
 @RestController
 @RequestMapping("/common/others/")
 @Api(value = "/common/others/", tags = {"公共", "其他"})
-public class OthersController {
+public class CommonOthersController {
 
     @Autowired
-    OthersService othersService;
+    CommonOthersService commonOthersService;
 
     @ApiOperation("上传多个文件")
     @ApiImplicitParams({
@@ -50,7 +50,7 @@ public class OthersController {
     })
     @PostMapping("sendCode")
     public Ajax sendCode(@RequestParam String mobile, @RequestParam CodeTypeEnum type) {
-        othersService.sendCode(mobile, type.toString());
+        commonOthersService.sendCode(mobile, type.toString());
         return Ajax.ok("发送成功");
     }
 
@@ -61,7 +61,7 @@ public class OthersController {
     @PostMapping("sendAuthCode")
     @Token
     public Ajax sendCode(TokenData tokenData, @RequestParam AuthCodeTypeEnum type) {
-        othersService.sendCode(tokenData.getMobile(), type.toString());
+        commonOthersService.sendCode(tokenData.getMobile(), type.toString());
         return Ajax.ok("发送成功");
     }
 
@@ -72,7 +72,7 @@ public class OthersController {
     })
     @PostMapping("sendCodeTest")
     public Ajax sendCodeTest(@RequestParam String mobile, @RequestParam CodeTypeEnum type) {
-        String code = othersService.sendTestCode(mobile, type.toString());
+        String code = commonOthersService.sendTestCode(mobile, type.toString());
         return Ajax.ok(code);
     }
 
@@ -83,7 +83,7 @@ public class OthersController {
     @PostMapping("sendAuthCodeTest")
     @Token
     public Ajax sendAuthCodeTest(TokenData tokenData, @RequestParam AuthCodeTypeEnum type) {
-        String code = othersService.sendTestCode(tokenData.getMobile(), type.toString());
+        String code = commonOthersService.sendTestCode(tokenData.getMobile(), type.toString());
         return Ajax.ok(code);
     }
 }

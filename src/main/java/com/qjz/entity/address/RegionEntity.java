@@ -1,9 +1,11 @@
-package com.qjz.entity.others;
+package com.qjz.entity.address;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.Accessors;
+import tk.mybatis.mapper.annotation.KeySql;
 
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -18,27 +20,20 @@ import java.util.Date;
 @Getter
 @Accessors(chain = true)
 @Table(name = "service_city")
-public class ServiceCityEntity {
-    /**
-     * 主键
-     */
-    private Integer id;
-    /**
-     * 城市名称
-     */
-    private String name;
+public class RegionEntity {
     /**
      * 地区编码
      */
+    @Id
     private Integer code;
     /**
-     * 首字母
+     * 父级地区编码
      */
-    private String letter;
+    private String parentCode;
     /**
-     * 是否禁用
+     * 地区名称
      */
-    private Boolean disable;
+    private String name;
     /**
      * 创建时间
      */

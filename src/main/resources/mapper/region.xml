@@ -5,12 +5,13 @@
     <result column="code1" property="code"/>
     <result column="parent_code1" property="parentCode"/>
     <result column="name1" property="name"/>
-    <association property="children" resultMap="regionChild"/>
+    <association property="children" resultMap="regionCity"/>
   </resultMap>
   <resultMap id="regionCity" type="regionTreeModel">
     <result column="code2" property="code"/>
     <result column="parent_code2" property="parentCode"/>
     <result column="name2" property="name"/>
+    <association property="children" resultMap="regionArea"/>
   </resultMap>
 
   <resultMap id="regionArea" type="regionTreeModel">

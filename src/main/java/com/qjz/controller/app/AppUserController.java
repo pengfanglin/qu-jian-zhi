@@ -2,7 +2,7 @@ package com.qjz.controller.app;
 
 import com.fanglin.common.core.others.Ajax;
 import com.qjz.model.user.UserLoginResultModel;
-import com.qjz.service.app.UserService;
+import com.qjz.service.app.AppUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -25,10 +25,10 @@ import javax.servlet.http.HttpServletResponse;
 @RestController
 @RequestMapping("/app/user/")
 @Api(value = "/app/user/", tags = {"APP","用户"})
-public class UserController {
+public class AppUserController {
 
     @Autowired
-    UserService userService;
+    AppUserService appUserService;
 
     @ApiOperation("用户登录")
     @ApiImplicitParams({
@@ -37,7 +37,7 @@ public class UserController {
     })
     @PostMapping("login")
     public Ajax<UserLoginResultModel> login(HttpServletResponse response, @RequestParam String mobile, @RequestParam String password) {
-        return Ajax.ok(userService.login(response, mobile, password));
+        return Ajax.ok(appUserService.login(response, mobile, password));
     }
 
     @ApiOperation("用户注册")
@@ -48,6 +48,6 @@ public class UserController {
     })
     @PostMapping("userRegister")
     public Ajax<UserLoginResultModel> register(HttpServletResponse response, @RequestParam String mobile, @RequestParam String password, @RequestParam String code) {
-        return Ajax.ok(userService.register(response, mobile, password, code));
+        return Ajax.ok(appUserService.register(response, mobile, password, code));
     }
 }

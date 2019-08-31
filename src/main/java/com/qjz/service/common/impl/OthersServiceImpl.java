@@ -5,7 +5,7 @@ import com.fanglin.common.utils.OthersUtils;
 import com.fanglin.common.utils.SmsUtils;
 import com.qjz.enums.others.RedisKeyEnum;
 import com.qjz.mapper.MapperFactory;
-import com.qjz.service.common.OthersService;
+import com.qjz.service.common.CommonOthersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
@@ -19,7 +19,7 @@ import redis.clients.jedis.Jedis;
  * @date 2019/4/3 16:36
  **/
 @Service
-public class OthersServiceImpl implements OthersService {
+public class OthersServiceImpl implements CommonOthersService {
 
     @Autowired
     MapperFactory mapperFactory;

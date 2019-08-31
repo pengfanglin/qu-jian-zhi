@@ -10,7 +10,7 @@ import com.qjz.enums.others.RedisKeyEnum;
 import com.qjz.mapper.MapperFactory;
 import com.qjz.model.user.UserLoginResultModel;
 import com.qjz.model.user.UserModel;
-import com.qjz.service.app.UserService;
+import com.qjz.service.app.AppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import redis.clients.jedis.Jedis;
@@ -27,7 +27,7 @@ import java.util.UUID;
  * @date 2019/4/3 16:36
  **/
 @Service
-public class UserServiceImpl implements UserService {
+public class AppUserServiceImpl implements AppUserService {
 
     @Autowired
     MapperFactory mapperFactory;

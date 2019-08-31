@@ -1,7 +1,7 @@
-package com.qjz.entity.user;
+package com.qjz.entity.others;
 
-import lombok.Getter;
-import lombok.Setter;
+import com.qjz.enums.others.BannerTypeEnum;
+import lombok.Data;
 import lombok.experimental.Accessors;
 import tk.mybatis.mapper.annotation.KeySql;
 
@@ -10,45 +10,45 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * 用户
+ * 轮播图
  *
  * @author 彭方林
  * @version 1.0
- * @date 2019/8/28 13:06
+ * @date 2019/8/30 22:34
  **/
-@Setter
-@Getter
+@Data
 @Accessors(chain = true)
-@Table(name = "user")
-public class UserEntity {
-    /**
-     * 主键
-     */
+@Table(name = "banner")
+public class BannerEntity {
     @Id
     @KeySql(useGeneratedKeys = true)
     private Integer id;
     /**
-     * 手机号
+     * 图片
      */
-    private Long mobile;
+    private String img;
     /**
-     * 密码盐值
+     * url路径
      */
-    private String salt;
+    private String url;
     /**
-     * 密码
+     * 轮播图类型
      */
-    private String password;
+    private BannerTypeEnum type;
     /**
-     * 是否禁用
+     * 额外数据
      */
-    private Boolean disable;
+    private String extra;
+    /**
+     * 权重
+     */
+    private Float sort;
     /**
      * 创建时间
      */
     private Date createTime;
     /**
-     * 修改时间
+     * 创建时间
      */
     private Date updateTime;
 }

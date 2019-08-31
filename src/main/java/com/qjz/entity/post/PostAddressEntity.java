@@ -1,4 +1,4 @@
-package com.qjz.entity.user;
+package com.qjz.entity.post;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,43 +10,61 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * 用户
+ * 岗位地址
  *
  * @author 彭方林
- * @version 1.0
- * @date 2019/8/28 13:06
- **/
+ * @date 2019-08-31
+ */
 @Setter
 @Getter
 @Accessors(chain = true)
-@Table(name = "user")
-public class UserEntity {
-    /**
-     * 主键
-     */
+@Table(name = "post_address")
+public class PostAddressEntity {
+
     @Id
     @KeySql(useGeneratedKeys = true)
     private Integer id;
+
     /**
-     * 手机号
+     * 岗位id
      */
-    private Long mobile;
+    private Integer postId;
+
     /**
-     * 密码盐值
+     * 省
      */
-    private String salt;
+    private Integer province;
+
     /**
-     * 密码
+     * 市
      */
-    private String password;
+    private Integer city;
+
     /**
-     * 是否禁用
+     * 区
      */
-    private Boolean disable;
+    private Integer area;
+
+    /**
+     * 地址
+     */
+    private String address;
+
+    /**
+     * 经度
+     */
+    private Double lng;
+
+    /**
+     * 纬度
+     */
+    private Double lat;
+
     /**
      * 创建时间
      */
     private Date createTime;
+
     /**
      * 修改时间
      */

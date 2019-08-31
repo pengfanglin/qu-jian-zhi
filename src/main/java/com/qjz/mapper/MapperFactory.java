@@ -18,4 +18,14 @@ public class MapperFactory {
     public UserMapper user;
     @Autowired
     public ServiceCityMapper serviceCity;
+    @Autowired
+    public RegionMapper region;
+    @Autowired
+    public BannerMapper banner;
+    @Autowired
+    public IndustryCategoryMapper industryCategory;
+    @Autowired
+    public PostMapper post;
+    @Autowired
+    public PostAddressMapper postAddress;
 }
