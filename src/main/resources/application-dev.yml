@@ -6,7 +6,7 @@ server:
     buffer-size: 1024
     direct-buffers: true
 mybatis:
-  type-aliases-package: com.qjz.entity,com.qjz.model
+  type-aliases-package: com.game.entity,com.game.model
   mapper-locations: classpath:mapper/*.xml
   configuration:
     map-underscore-to-camel-case: true
@@ -27,7 +27,7 @@ spring:
       max-file-size: 50MB
       max-request-size: 50MB
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/qjz?useSSL=false&serverTimezone=CTT&characterEncoding=UTF-8&autoReconnect=true
+    url: jdbc:mysql://47.101.151.125:3306/game?useSSL=false&serverTimezone=CTT&characterEncoding=UTF-8&autoReconnect=true
     username: root
     password: 123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -38,19 +38,19 @@ spring:
       pool-name: hikariCP
       connection-timeout: 10000
 common:
-  static-dir: /data/static/template/
+  static-dir: /data/static/game/
   jedis:
     enable: true
     password: 123456
-    host: 127.0.0.1
+    host: 47.101.151.125
   sms:
     ali:
       access-key-id: LTAI4Ff7n5i76MNMW7w3QNgu
       access-secret: EC8YR9jVi1WE4rxVigvsev37bzwsZr
   swagger:
     enable: true
-    title: 趣兼职
-    description: 趣兼职API文档
+    title: 24节气
+    description: 24节气API文档
     version: 1.0.0
   http:
     enable: true
