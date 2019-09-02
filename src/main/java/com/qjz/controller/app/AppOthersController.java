@@ -1,6 +1,7 @@
 package com.qjz.controller.app;
 
 import com.fanglin.common.core.others.Ajax;
+import com.fanglin.common.utils.HttpUtils;
 import com.qjz.enums.post.PostTypeEnum;
 import com.qjz.model.others.HomeBannerModel;
 import com.qjz.model.others.IndustryCategoryTreeModel;
