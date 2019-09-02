@@ -58,8 +58,8 @@ public class CommonOthersController {
     @ApiImplicitParams({
         @ApiImplicitParam(name = "type", value = "验证码类型", required = true)
     })
+    @Token("admin")
     @PostMapping("sendAuthCode")
-    @Token
     public Ajax sendCode(TokenData tokenData, @RequestParam AuthCodeTypeEnum type) {
         commonOthersService.sendCode(tokenData.getMobile(), type.toString());
         return Ajax.ok("发送成功");
@@ -80,8 +80,8 @@ public class CommonOthersController {
     @ApiImplicitParams({
         @ApiImplicitParam(name = "type", value = "验证码类型", required = true)
     })
+    @Token("admin")
     @PostMapping("sendAuthCodeTest")
-    @Token
     public Ajax sendAuthCodeTest(TokenData tokenData, @RequestParam AuthCodeTypeEnum type) {
         String code = commonOthersService.sendTestCode(tokenData.getMobile(), type.toString());
         return Ajax.ok(code);
